@@ -31,6 +31,8 @@ class CartActivity : AppCompatActivity(), Onclick {
             adapter.submitList(it)
         })
         viewModel.getFood()
+
+
     }
 
     override fun orderActivity(food: Food) {

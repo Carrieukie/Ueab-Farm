@@ -41,7 +41,6 @@ class OrderActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
             }
 
             Intent(applicationContext,CartActivity::class.java).also {
-                it.putExtra("food",food)
                 startActivity(it)
             }
         }

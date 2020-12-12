@@ -24,6 +24,12 @@ class MainActivity : AppCompatActivity() ,Onclick{
         var adapter = MenuAdapter(this)
         recyclerViewMenu.adapter = adapter
         adapter.submitList(menuList)
+
+        imageView_cart.setOnClickListener {
+            Intent(applicationContext,CartActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     override fun orderActivity(food: Food) {
