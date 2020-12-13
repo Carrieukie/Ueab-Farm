@@ -8,13 +8,6 @@ import com.karis.utamukitchen.models.Food
 import com.karis.utamukitchen.utils.Coroutines
 
 class CartViewModel @ViewModelInject constructor(private val mainRepository: MainRepository) : ViewModel() {
-   var cartFood : MutableLiveData<List<Food>> = MutableLiveData()
-
-    fun getFood(){
-        Coroutines.io {
-            var foods = mainRepository.getAllFoods()
-            cartFood.postValue(foods)
-        }
-    }
-
+    var cartFood = mainRepository.foodList
+    var totalPrice = mainRepository.totalPrice
 }

@@ -18,10 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageViewFood"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="248dp"
+            android:layout_height="215dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
@@ -32,19 +33,18 @@
             app:layout_constraintDimensionRatio="H,5:4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:textColor="@color/colorAccent"
             android:text="@{food.name}"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewFood" />
@@ -58,7 +58,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="sans-serif"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:text="@{food.description}"
@@ -100,16 +100,31 @@
         <NumberPicker
             android:id="@+id/numberpicker_main_picker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0"
             app:layout_constraintBottom_toTopOf="@+id/btn_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_description" />
 
-        <Button
+        <com.yy.mobile.rollingtextview.RollingTextView
+            android:id="@+id/alphaBetView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btn_add"
+            app:layout_constraintStart_toStartOf="@+id/btn_add"
+            tools:text="Total Price: Ksh 1200" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,6 +133,7 @@
             android:layout_marginBottom="32dp"
             android:background="@drawable/bg_green_rounded"
             android:clickable="true"
+            android:backgroundTint="@color/starbuck_green"
             android:fontFamily="@font/open_sans_semibold"
             android:foreground="?android:attr/selectableItemBackground"
             android:padding="12dp"
@@ -130,16 +146,17 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/open_sans_semibold"
-            android:text="@{`Ksh` + food.price * food.quantity}"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Order size: 20 pcs"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_add"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/numberpicker_main_picker" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

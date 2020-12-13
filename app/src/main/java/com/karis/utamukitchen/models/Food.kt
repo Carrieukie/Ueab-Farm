@@ -36,7 +36,7 @@ data class FoodDataBinding(
 
 @Entity(tableName = "cart")
 data class Food(
-        @PrimaryKey(autoGenerate = true)
+        @PrimaryKey(autoGenerate = false)
         var id: Int = 0,
         var image: String? = "",
         var name: String? = "",

@@ -27,11 +27,17 @@ class CartActivity : AppCompatActivity(), Onclick {
         val adapter = CartAdapter(this)
         recyclerView_Cart.adapter = adapter
 
-        viewModel.cartFood.observe(this, Observer {
+        viewModel.cartFood.observe(this,  {
             adapter.submitList(it)
         })
-        viewModel.getFood()
 
+        viewModel.totalPrice.observe(this,{
+            if (it == null){
+                textView_totalPrice.text = "Ksh 0"
+            }else{
+                textView_totalPrice.text = "Ksh $it"
+            }
+        })
 
     }
 

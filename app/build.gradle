@@ -76,7 +76,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation 'com.michaelmuenzer.android:ScrollableNumberPicker:0.2.2'
 
+    implementation 'com.github.DonaldDu:NumberPicker:v2.4.3.2'
 
+    implementation 'com.yy.mobile:RollingText:1.2.7'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

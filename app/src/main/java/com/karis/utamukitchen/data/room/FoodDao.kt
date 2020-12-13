@@ -14,6 +14,10 @@ interface FoodDao {
     suspend fun addFood(food: Food)
 
     @Query("SELECT * FROM cart")
-    suspend  fun getAllFoods(): List<Food>
+    fun getAllFoods(): LiveData<List<Food>>
+
+    @Query("SELECT SUM(price * numberOfItem) FROM cart")
+    fun getTotalPrice(): LiveData<Int>
+
 
 }
