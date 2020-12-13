@@ -16,6 +16,9 @@ interface FoodDao {
     @Query("SELECT * FROM cart")
     fun getAllFoods(): LiveData<List<Food>>
 
+    @Query("SELECT * FROM cart WHERE id = :id")
+    fun getMovie(id: Int): LiveData<Food?>?
+
     @Query("SELECT SUM(price * numberOfItem) FROM cart")
     fun getTotalPrice(): LiveData<Int>
 

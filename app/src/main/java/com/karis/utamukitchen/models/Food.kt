@@ -12,29 +12,6 @@ import com.bumptech.glide.request.RequestOptions
 
 
 @Entity(tableName = "cart")
-data class FoodDataBinding(
-        var id: Int = 0,
-        var image: String? = "",
-        var name: String? = "",
-        var price: Int? = -1,
-        var quantity: Int? = 1,
-        var numberOfItem: Int? = 1,
-        var category: String? = "",
-        var description: String? = "",
-){
-        companion object {
-                @JvmStatic
-                @BindingAdapter("foodImage")
-                fun loadImage(view: ImageView, profileImage: String) {
-                        Glide.with(view.context)
-                                .load(profileImage)
-                                .circleCrop()
-                                .into(view)
-                }
-        }
-}
-
-@Entity(tableName = "cart")
 data class Food(
         @PrimaryKey(autoGenerate = false)
         var id: Int = 0,

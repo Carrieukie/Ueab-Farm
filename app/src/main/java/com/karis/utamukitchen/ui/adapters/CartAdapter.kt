@@ -29,6 +29,7 @@ class CartAdapter(private var onclick: Onclick) : ListAdapter<Food, CartAdapter.
 
         setFadeAnimation(holder.itemView)
         holder.itemView.textViewCartName.text = food.name.toString()
+        holder.itemView.textViewPieces.text = "${food.quantity.toString()} pcs"
         holder.itemView.textViewItemTotal.text = "Ksh. ${food.price?.times(food.numberOfItem!!)}"
         holder.itemView.textViewNumberOfItems.text = "x ${food.numberOfItem}"
         Glide.with(holder.itemView.context).load(food.image).circleCrop().into(

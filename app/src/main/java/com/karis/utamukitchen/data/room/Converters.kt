@@ -3,7 +3,7 @@ package com.karis.utamukitchen.data.room
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.karis.utamukitchen.models.Food
-import com.karis.utamukitchen.models.FoodDataBinding
+
 
 import javax.inject.Inject
 

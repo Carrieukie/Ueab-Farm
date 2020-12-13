@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="BreakFast"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/black"
         android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewCategory"
         app:layout_constraintStart_toStartOf="parent"

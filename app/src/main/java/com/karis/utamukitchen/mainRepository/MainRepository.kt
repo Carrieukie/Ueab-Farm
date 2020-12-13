@@ -12,6 +12,11 @@ class MainRepository @Inject constructor(private val appDatabase: AppDatabase) {
     val foodList =  appDatabase.foodDao().getAllFoods();
     val totalPrice = appDatabase.foodDao().getTotalPrice()
 
+
+    fun getFood(id :Int): LiveData<Food?>? {
+        return appDatabase.foodDao().getMovie(id);
+    }
+
     suspend fun addFood(food: Food){
         appDatabase.foodDao().addFood(food)
     }
