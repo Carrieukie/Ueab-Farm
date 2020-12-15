@@ -36,7 +36,7 @@
             android:fontFamily="@font/open_sans_bold"
             android:text="Kaimatis (20 pcs) plain "
             android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
             app:layout_constraintStart_toEndOf="@+id/imageViewFoodMenu"
             app:layout_constraintTop_toTopOf="parent" />
