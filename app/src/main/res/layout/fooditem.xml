@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,16 +14,14 @@
 
         <ImageView
             android:id="@+id/imageViewFoodMenu"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewDescription"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewFoodTitle"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -31,15 +30,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:text="Kaimatis (20 pcs) plain "
             android:textColor="@color/colorAccent"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
             app:layout_constraintStart_toEndOf="@+id/imageViewFoodMenu"
-            app:layout_constraintTop_toTopOf="@+id/imageViewFoodMenu" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewDescription"
@@ -51,6 +51,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif"
             android:text="Crunchy dumplings in a sweet sugar syrup known as kaimati or kalimati. They make for a delightful snack, enjoyable at any time; as a starter sweet before a meal, for a light dessert with coffee, for breakfast if you have a sweet tooth, with tea in the evening, midnight sweet craving "
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewFoodTitle"

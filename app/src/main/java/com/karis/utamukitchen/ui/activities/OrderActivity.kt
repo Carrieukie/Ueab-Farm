@@ -51,6 +51,7 @@ class OrderActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
             Intent(applicationContext, CartActivity::class.java).also {
                 startActivity(it)
             }
+            finish()
         }
 
     }
@@ -93,4 +94,6 @@ class OrderActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
         rollingTextViewTotalPrice.setText((newVal * food.price!!).toString())
         rollingTextViewOrderSize.setText((newVal * food.quantity!!).toString())
     }
+
+
 }

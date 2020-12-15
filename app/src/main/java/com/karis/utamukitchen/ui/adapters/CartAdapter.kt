@@ -32,6 +32,7 @@ class CartAdapter(private var onclick: Onclick) : ListAdapter<Food, CartAdapter.
         holder.itemView.textViewPieces.text = "${food.quantity.toString()} pcs"
         holder.itemView.textViewItemTotal.text = "Ksh. ${food.price?.times(food.numberOfItem!!)}"
         holder.itemView.textViewNumberOfItems.text = "x ${food.numberOfItem}"
+        holder.itemView.textViewPriceCart.text = "Ksh ${food.price}"
         Glide.with(holder.itemView.context).load(food.image).circleCrop().into(
                 holder.itemView.imageViewcart
         )
@@ -43,6 +44,14 @@ class CartAdapter(private var onclick: Onclick) : ListAdapter<Food, CartAdapter.
         val anim = AlphaAnimation(0.0f, 1.0f)
         anim.duration = 1000
         view.startAnimation(anim)
+    }
+
+    fun getFoodAt(adapterPosition: Int): Food {
+        return  getItem(adapterPosition)
+    }
+
+    override fun submitList(list: List<Food>?) {
+        super.submitList(list?.let { ArrayList(it) })
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -57,6 +66,6 @@ private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Food>() {
     }
 
     override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean {
-        return oldItem == newItem
+        return oldItem.numberOfItem == newItem.numberOfItem
     }
 }

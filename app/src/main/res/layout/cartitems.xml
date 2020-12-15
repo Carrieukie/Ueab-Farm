@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     app:cardCornerRadius="15dp"
     android:layout_margin="5dp"
@@ -76,5 +77,17 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewcart"
             app:layout_constraintEnd_toEndOf="@+id/textViewNumberOfItems" />
+
+        <TextView
+            android:id="@+id/textViewPriceCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black"
+            android:text="Ksh 300"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewPieces"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPieces" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

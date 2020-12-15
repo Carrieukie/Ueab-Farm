@@ -10,4 +10,18 @@ import com.karis.utamukitchen.utils.Coroutines
 class CartViewModel @ViewModelInject constructor(private val mainRepository: MainRepository) : ViewModel() {
     var cartFood = mainRepository.foodList
     var totalPrice = mainRepository.totalPrice
+    lateinit var food: Food
+
+    fun update(){
+        Coroutines.io {
+            mainRepository.updateFood(food)
+        }
+    }
+
+    fun delete(food: Food){
+        Coroutines.io {
+            mainRepository.deleteFood(food)
+        }
+    }
+
 }

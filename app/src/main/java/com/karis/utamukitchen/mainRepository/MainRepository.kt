@@ -9,9 +9,9 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val appDatabase: AppDatabase) {
 
-    val foodList =  appDatabase.foodDao().getAllFoods();
+    val foodList =  appDatabase.foodDao().getAllFoods()
     val totalPrice = appDatabase.foodDao().getTotalPrice()
-
+    val ifExists = appDatabase.foodDao().ifEntryExists()
 
     fun getFood(id :Int): LiveData<Food?>? {
         return appDatabase.foodDao().getMovie(id);
@@ -21,6 +21,12 @@ class MainRepository @Inject constructor(private val appDatabase: AppDatabase) {
         appDatabase.foodDao().addFood(food)
     }
 
+    suspend fun updateFood(food: Food){
+        appDatabase.foodDao().updateFood(food)
+    }
 
+    suspend fun deleteFood(food: Food){
+        appDatabase.foodDao().deleteFood(food)
+    }
 
 }

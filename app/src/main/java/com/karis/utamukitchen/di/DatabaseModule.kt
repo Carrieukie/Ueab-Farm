@@ -8,12 +8,14 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
 @Module
 object DatabaseModule {
 
     @Provides
+    @Singleton
     fun providesAppDatabase(application: Application): AppDatabase {
         return Room.databaseBuilder(application, AppDatabase::class.java, "food.db")
             .fallbackToDestructiveMigration()
@@ -21,6 +23,7 @@ object DatabaseModule {
     }
 
     @Provides
+    @Singleton
     fun providesHoursLeaderDao(appDatabase: AppDatabase): FoodDao {
         return appDatabase.foodDao()
     }
