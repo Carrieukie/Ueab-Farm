@@ -1,23 +1,20 @@
 package com.karis.utamukitchen.ui.activities
 
 import android.content.Intent
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.karis.utamukitchen.R
-import com.karis.utamukitchen.ui.adapters.MenuAdapter
 import com.karis.utamukitchen.models.Category
 import com.karis.utamukitchen.models.Food
+import com.karis.utamukitchen.ui.adapters.MenuAdapter
 import com.karis.utamukitchen.ui.viewmodel.MainViewModel
 import com.karis.utamukitchen.utils.Onclick
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() ,Onclick{
@@ -33,16 +30,28 @@ class MainActivity : AppCompatActivity() ,Onclick{
         adapter.submitList(menuList)
 
         imageView_cart.setOnClickListener {
-            Intent(applicationContext,CartActivity::class.java).also {
+            Intent(applicationContext, CartActivity::class.java).also {
                 startActivity(it)
             }
         }
     }
 
     override fun orderActivity(food: Food) {
-        Intent(applicationContext,OrderActivity::class.java).also {
-            it.putExtra("food",food)
+        Intent(applicationContext, OrderActivity::class.java).also {
+            it.putExtra("food", food)
             startActivity(it)
         }
     }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        callReference(this)
+//        attachListener()
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        detachListener()
+//    }
+
 }

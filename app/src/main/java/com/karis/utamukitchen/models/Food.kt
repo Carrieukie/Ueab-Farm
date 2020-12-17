@@ -11,6 +11,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 
+
+/**
+ *
+ */
+
 @Entity(tableName = "cart")
 data class Food(
         @PrimaryKey(autoGenerate = false)

@@ -18,10 +18,12 @@
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewFoodTitle"
+            app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -36,7 +38,7 @@
             android:fontFamily="@font/open_sans_bold"
             android:text="Kaimatis (20 pcs) plain "
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
             app:layout_constraintStart_toEndOf="@+id/imageViewFoodMenu"
             app:layout_constraintTop_toTopOf="parent" />
