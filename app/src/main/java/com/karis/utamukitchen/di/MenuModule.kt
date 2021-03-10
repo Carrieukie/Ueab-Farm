@@ -2,6 +2,9 @@ package com.karis.utamukitchen.di
 
 import com.karis.utamukitchen.models.Category
 import com.karis.utamukitchen.models.Food
+import com.karis.utamukitchen.utils.Constants.BREAKFAST
+import com.karis.utamukitchen.utils.Constants.MAIN
+import com.karis.utamukitchen.utils.Constants.SIDES
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,10 +15,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 object MenuModule {
-
-    private const val BREAKFAST = "BreakFast"
-    private const val MAIN = "Mains"
-    private const val SIDES = "Sides"
 
 
     fun provides_menu() : ArrayList<Food>{
@@ -43,25 +42,8 @@ object MenuModule {
 
     @Provides
     @Singleton
-    fun getsortedData(): ArrayList<Category> {
-        val menuArrayList: ArrayList<Category> = ArrayList()
-        val foodArrayList: ArrayList<Food> = provides_menu()
-
-        val categories: HashSet<String?> = HashSet()
-
-        for (category in foodArrayList) {
-            categories.add(category.category)
-        }
-        for (category in categories) {
-            val foods: ArrayList<Food> = ArrayList()
-            for (food in foodArrayList) {
-                if (food.category == category) {
-                    foods.add(food)
-                }
-            }
-            menuArrayList.add(Category(category, foods))
-        }
-        return menuArrayList
+    fun getsortedData(): ArrayList<Food> {
+        return provides_menu()
     }
 
 }
