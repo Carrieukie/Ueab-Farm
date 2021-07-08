@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.NumberPicker
 import android.widget.TextView
@@ -94,6 +95,8 @@ class OrderActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
         rollingTextViewTotalPrice.setText((newVal * food.price!!).toString())
         rollingTextViewOrderSize.setText((newVal * food.quantity!!).toString())
     }
+
+    fun send(view: View) {}
 
 
 }

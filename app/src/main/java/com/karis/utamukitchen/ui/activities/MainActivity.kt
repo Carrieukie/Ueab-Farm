@@ -2,26 +2,29 @@ package com.karis.utamukitchen.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.karis.utamukitchen.R
-import com.karis.utamukitchen.models.Category
+import com.karis.utamukitchen.data.firebase.FirebaseUtil
 import com.karis.utamukitchen.models.Food
 import com.karis.utamukitchen.ui.adapters.FoodAdapter
 import com.karis.utamukitchen.ui.viewmodel.MainViewModel
-import com.karis.utamukitchen.utils.Constants
-import com.karis.utamukitchen.utils.Constants.BREAKFAST
-import com.karis.utamukitchen.utils.Constants.MAIN
-import com.karis.utamukitchen.utils.Constants.SIDES
+import com.karis.utamukitchen.utils.Constants.CEREALS
+import com.karis.utamukitchen.utils.Constants.FRUITS
+import com.karis.utamukitchen.utils.Constants.MEAT
+import com.karis.utamukitchen.utils.Constants.MILK
+import com.karis.utamukitchen.utils.Constants.OILS
+import com.karis.utamukitchen.utils.Constants.VEGETABLES
 import com.karis.utamukitchen.utils.Onclick
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -35,9 +38,12 @@ class MainActivity : AppCompatActivity() ,Onclick, AdapterView.OnItemSelectedLis
 
 
         objects = arrayOf(
-            BREAKFAST,
-            MAIN,
-            SIDES
+            CEREALS,
+            VEGETABLES,
+            OILS,
+            FRUITS,
+            MEAT,
+            MILK
         )
 
         val spinneradapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
@@ -81,6 +87,33 @@ class MainActivity : AppCompatActivity() ,Onclick, AdapterView.OnItemSelectedLis
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         viewModel.setFilter(objects[0])
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseUtil.callReference(this)
+        FirebaseUtil.attachListener()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        FirebaseUtil.detachListener()
+    }
+
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.logout){
+            FirebaseAuth.getInstance().signOut()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

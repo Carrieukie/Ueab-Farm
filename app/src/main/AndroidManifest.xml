@@ -3,6 +3,8 @@
     package="com.karis.utamukitchen">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:name=".App"
@@ -12,9 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UtamuKitchen">
-        <activity android:name=".ui.activities.CartActivity"></activity>
-        <activity android:name=".ui.activities.OrderActivity" />
-        <activity android:name=".ui.activities.MainActivity">
+        <activity android:name=".ui.activities.CartActivity"
+            android:label="UEAB Farm"></activity>
+        <activity android:name=".ui.activities.OrderActivity"
+            android:label="UEAB Farm"
+            />
+        <activity android:name=".ui.activities.MainActivity"
+            android:label="UEAB Farm"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

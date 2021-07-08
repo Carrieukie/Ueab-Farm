@@ -1,51 +1,49 @@
 package com.karis.utamukitchen.data.firebase
 
-//import android.app.Activity
-//import com.firebase.ui.auth.AuthUI
-//import com.firebase.ui.auth.AuthUI.IdpConfig.PhoneBuilder
-//import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-//import java.util.*
+import android.annotation.SuppressLint
+import android.app.Activity
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
 
 
+@SuppressLint("StaticFieldLeak")
 object FirebaseUtil {
-//    private var firebaseUtil: FirebaseUtil? = null
-//    var mFirebaseAuth: FirebaseAuth? = null
-//    var mAuthListener: AuthStateListener? = null
-//    private const val RC_SIGN_IN = 123
-//    private var caller: Activity? = null
-//
-//    fun callReference(callerActivity: Activity?) {
-//        if (firebaseUtil == null) {
-//            caller = callerActivity
-//            mAuthListener = AuthStateListener { firebaseAuth: FirebaseAuth ->
-//                if (firebaseAuth.currentUser == null) {
-//                    signIn()
-//                }
-//            }
-//        }
-//    }
-//
-//    private fun signIn() {
-//        val providers = listOf(
-//            PhoneBuilder().build()
-//        )
-//
-//        caller!!.startActivityForResult(
-//            AuthUI.getInstance()
-//                .createSignInIntentBuilder()
-//                .setAvailableProviders(providers)
-//                .setIsSmartLockEnabled(false)
-//                .build(),
-//            RC_SIGN_IN
-//        )
-//    }
-//
-//    fun attachListener() {
-//        mFirebaseAuth!!.addAuthStateListener(mAuthListener!!)
-//    }
-//
-//    fun detachListener() {
-//        mFirebaseAuth!!.removeAuthStateListener(mAuthListener!!)
-//    }
+    private var firebaseUtil: FirebaseUtil? = null
+    var mFirebseAuth: FirebaseAuth? = null
+    var mAuthListener: FirebaseAuth.AuthStateListener? = null
+    private const val RC_SIGN_IN = 123
+
+    fun callReference(callerActivity: Activity) {
+        if (firebaseUtil == null) {
+            mFirebseAuth = FirebaseAuth.getInstance()
+            mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth: FirebaseAuth ->
+                if (firebaseAuth.currentUser == null) {
+                    signIn(callerActivity)
+                }
+            }
+        }
+    }
+
+    private fun signIn(callerActivity: Activity) {
+        val providers = listOf(
+            AuthUI.IdpConfig.PhoneBuilder().build()
+        )
+
+        callerActivity.startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setIsSmartLockEnabled(false)
+                .build(),
+            RC_SIGN_IN
+        )
+    }
+
+    fun attachListener() {
+        mFirebseAuth!!.addAuthStateListener(mAuthListener!!)
+    }
+
+    fun detachListener() {
+        mFirebseAuth!!.removeAuthStateListener(mAuthListener!!)
+    }
 }

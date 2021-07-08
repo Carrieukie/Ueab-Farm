@@ -2,8 +2,11 @@ package com.karis.utamukitchen.ui.activities
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
 import android.graphics.Canvas
+import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import android.widget.NumberPicker
@@ -189,5 +192,21 @@ class CartActivity : AppCompatActivity(), Onclick, NumberPicker.OnValueChangeLis
         }else{
             super.onBackPressed()
         }
+    }
+
+    fun send(view: View) {
+        var summary = "Hey, I have odered these from your farm \n"
+
+        for (item in viewModel.cartFood.value!!){
+            summary += " ${item.name} x ${item.quantity} @ ${item.price } \n"
+        }
+
+        summary += " For a total of ${viewModel.totalPrice.value}"
+
+        val number = "0710102720" // The number on which you want to send SMS
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null)).apply {
+            putExtra("sms_body",summary);
+        })
+
     }
 }

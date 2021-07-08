@@ -12,6 +12,7 @@ import java.lang.reflect.Array
 import javax.inject.Inject
 
 class MainViewModel @ViewModelInject constructor(private val mainRepository: MainRepository) : ViewModel() {
+
     var ifExists = mainRepository.ifExists
 
     var foodslist  = MenuModule.provides_menu()
@@ -19,12 +20,11 @@ class MainViewModel @ViewModelInject constructor(private val mainRepository: Mai
     var foods = MutableLiveData<List<Food>>()
 
     init {
-        foods.postValue(foodslist.filter { it.category == Constants.BREAKFAST })
+        foods.postValue(foodslist.filter { it.category == Constants.CEREALS })
     }
 
     fun setFilter(filter : String){
         foods.postValue(foodslist.filter { it.category == filter })
-
     }
 
 }

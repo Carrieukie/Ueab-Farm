@@ -202,7 +202,7 @@
             android:fontFamily="@font/open_sans_semibold"
             android:foreground="?attr/selectableItemBackground"
             android:padding="12dp"
-            android:text="Add To Bag"
+            android:text="Add to cart"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16dp"
