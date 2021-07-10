@@ -29,12 +29,11 @@ An relatively simple android app written fully in kotlin to facilitate making pr
 
 
 ##Screenshots
-
-  *Home page
-    <img src="https://github.com/Carrieukie/Ueab-Farm/blob/main/assets/home.gif" width="320"/>
-
-  *Edit and Add to cart page
-    <img src="https://github.com/Carrieukie/Ueab-Farm/blob/main/assets/cart.gif" width="320"/>
+Home page
+<img src="https://github.com/Carrieukie/Ueab-Farm/blob/main/assets/home.gif" width="320"/>
+    
+Edit and Add to cart page
+<img src="https://github.com/Carrieukie/Ueab-Farm/blob/main/assets/cart.gif" width="320"/>
 
 
 
