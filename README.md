@@ -26,5 +26,11 @@ An relatively simple android app written fully in kotlin to facilitate making pr
 * Architecture
     * Clean Architecture
     * MVVM - Model View View Model
-   
-    
+
+
+##Screenshots
+
+<img src="https://github.com/Carrieukie/Ueab-Farm/blob/main/assets/home.gif" width="320"/>
+
+
+
